@@ -10,11 +10,12 @@
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <span>用户管理</span>
         </template>
         <el-menu-item-group>
-          <template slot="title">用户管理</template>
           <el-menu-item index="/layout/index">首页</el-menu-item>
+          <el-menu-item index="/layout/userEdit">修改个人信息</el-menu-item>
+          <el-menu-item index="/layout/addUser">添加管理员</el-menu-item>
           <el-menu-item index="/login">登录页</el-menu-item>
           <el-menu-item index="/layout/users">用户管理页</el-menu-item>
           <el-menu-item index="/layout/upload">提交表单</el-menu-item>
