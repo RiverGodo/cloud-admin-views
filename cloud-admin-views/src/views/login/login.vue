@@ -64,7 +64,7 @@ export default {
               this.$router.push("/layout/index");
             }, 1000);
           } else {
-            this.$message.err("登录失败", res.msg);
+            this.$message.error("登录失败", res.msg);
           }
           this.isLoading = false;
         })

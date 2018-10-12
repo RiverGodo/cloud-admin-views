@@ -12,7 +12,6 @@ const store = new Vuex.Store({
             desc:'',
             email:'',
             nickname:'',
-
         }
     },
     mutations:{

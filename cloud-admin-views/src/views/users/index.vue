@@ -67,6 +67,7 @@ export default {
     getData() {
       this.$axios.get("/user", {pn:this.page, size:5}).then(res => {
         if (res.code == 200) {
+          console.log(res);
           this.count = res.count
           this.tableData = res.data;
         }

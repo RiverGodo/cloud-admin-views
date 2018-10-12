@@ -9,8 +9,7 @@
 <el-menu :router="true"  background-color="#545c64" text-color="#fff">
       <el-submenu index="1">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>用户管理</span>
+         用户管理
         </template>
         <el-menu-item-group>
           <el-menu-item index="/layout/index">首页</el-menu-item>
@@ -18,28 +17,11 @@
           <el-menu-item index="/layout/addUser">添加管理员</el-menu-item>
           <el-menu-item index="/login">登录页</el-menu-item>
           <el-menu-item index="/layout/users">用户管理页</el-menu-item>
-          <el-menu-item index="/layout/upload">提交表单</el-menu-item>
         </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template slot="title">选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
+        <el-menu-item index="/layout/upload">上传图片测试页</el-menu-item>
+        <el-menu-item index="/layout/swiper">轮播图管理</el-menu-item>
+        <el-menu-item index="/layout/addSwiperDemo">添加轮播图</el-menu-item>
       </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航四</span>
-      </el-menu-item>
 </el-menu>
         </div>
         <div class="main-content ml-200">
@@ -77,14 +59,14 @@ export default {};
     padding-top: 80px;
     background: #545c64;
 
-    /deep/{
-      .el-menu{
+    /deep/ {
+      .el-menu {
         border-right: none;
       }
     }
   }
-  .main-content{
-    padding: 15px
+  .main-content {
+    padding: 15px;
   }
 }
 </style>
