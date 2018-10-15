@@ -40,8 +40,11 @@
             </el-form-item>
         </el-form>
 
-        <el-button type="primary" @click="handleSubmit">
+        <el-button type="primary" @click="handleSubmit" v-if="$route.name == 'addSwiperDemo'">
             提交
+        </el-button>
+         <el-button type="primary" @click="handleSaveEdit" v-else>
+            保存更改
         </el-button>
 
     <el-dialog title="书籍列表" :visible.sync="isShowDialog">
@@ -72,7 +75,6 @@
 
 
 export default {
-  name: "addSwiperDemo",
   data() {
     return {
       formData: {
@@ -96,7 +98,7 @@ export default {
     },
     async getBookData() {
       const res = await this.$axios.get(`/category/${this.formData.category}/books`)
-      console.log(res);
+      console.log(1);
       this.bookData = res.data.books
       this.bookCount = res.count 
     },
@@ -118,6 +120,7 @@ export default {
 
         if(isCanSubmit) {
             this.$axios.post('/swiper',this.formData).then(res=>{
+             
                 if (res.code == 200) {
                     this.$message.success(res.msg)
                     this.$router.push({ name:'swiper'})
@@ -126,10 +129,43 @@ export default {
         } else {
             this.$message.err('缺少必要参数')
         }
+    },
+    getInitData() {
+        //编辑页面回填获取数据
+        this.$axios.get(`/swiper/${this.$route.query.id}`).then(res=>{
+            this.formData = {
+                ...this.formData,
+                ...res.data,
+                book:res.data.book._id,//回填书籍ID
+                category:res.data.book.type//回填分类ID
+            }
+        })
+    },
+    handleSaveEdit() {
+        //在编辑页面下保存更改
+        this.$axios.put(`/swiper/${this.$route.query.id}`,this.formData).then(res=>{
+            if(res.code == 200){
+                this.$message.success(res.msg)
+                this.$router.push({name:'swiper'})
+            }
+        })
     }
   },
   created() {
     this.getCategory();
+    if (this.$router.name == 'addSwiperDemo') {
+        //添加页面
+        this.formData ={
+        title: "",
+        img: "",
+        book: "",
+        index: "",
+        category: ""
+        }
+    }else{
+        //编辑页面
+        this.getInitData()
+    }
   },
   computed:{
       getBookItem(){

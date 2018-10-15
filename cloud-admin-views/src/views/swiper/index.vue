@@ -34,7 +34,11 @@
     </el-table-column>
 </el-table>
 
-<el-pagination background layout="prev,pager,next" @current-change="pnChange" :total="swiperCount"></el-pagination>
+<el-pagination 
+    background layout="prev,pager,next" 
+    @current-change="pnChange" 
+    :total="swiperCount">
+</el-pagination>
 
     </div>
 </template>
@@ -64,7 +68,7 @@ export default {
         this.getData()
     },
       edit(id){
-      this.router.push({name:'swiper',query:{id}})
+      this.$router.push({name:'editSwiperDemo',query:{id}})
   },
   deleteSwiper(id){
       this.$confirm('此操作将永久删除该轮播图, 是否继续?', '提示', {

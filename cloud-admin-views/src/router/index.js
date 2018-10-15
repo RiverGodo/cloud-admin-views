@@ -11,7 +11,10 @@ const components = {
   userEdit:()=>import('@/views/userEdit/userEdit'),
   addUser:()=>import('@/views/addUser/index'),
   swiper:()=>import('@/views/swiper/index'),
-  addSwiperDemo: ()=>import('@/views/swiper/addSwiperDemo')
+  addSwiperDemo: ()=>import('@/views/swiper/addSwiperDemo'),
+  addBook: ()=>import('@/views/book/addBook'),
+  book:()=>import('@/views/book/book'),
+  editBook:()=>import('@/views/book/editBook')
 }
 
 export default new Router({
@@ -76,10 +79,43 @@ export default new Router({
         },
         {
           path:'addSwiperDemo',
+          name:'addSwiperDemo',
           meta:{
             title:'添加轮播图',
           },
           component: components.addSwiperDemo
+        },
+        {
+          path:'editSwiperDemo',
+          name:'editSwiperDemo',
+          meta:{
+            title:'编辑轮播图',
+          },
+          component: components.addSwiperDemo
+        },
+        {
+          path:'addBook',
+          name:'addBook',
+          meta:{
+            title:'添加图书',
+          },
+          component: components.addBook
+        },
+        {
+          path:'book',
+          name:'book',
+          meta:{
+            title:'图书',
+          },
+          component: components.book
+        },
+        {
+          path:'editBook',
+          name:'editBook',
+          meta:{
+            title:'修改图书',
+          },
+          component: components.editBook
         },
        
       ]
